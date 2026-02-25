@@ -6,9 +6,15 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*", // อนุญาตทุกที่ก่อนเพื่อเช็คว่า Error หายไหม
+    origin: [
+      "https://dev-su-smart-building-calendar-na3l.vercel.app",
+      "https://dev-su-smart-building-calendar.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
   }),
 );
+
 app.use(express.json());
 
 app.use("/api", meetingRouter);
